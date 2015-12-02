@@ -1,16 +1,31 @@
 extends layout
 
 block content
+
   nav(class="nav-top")
 
-    figure(class="perso")
-      img(
-        class="img round center"
-        src="/img/thumbnail.jpg"
-        alt="Porco Rosso"
-        width="90"
-        height="90"
-      )
+    img(
+      class="img round thumbnail"
+      src="/img/thumbnail.jpg"
+      alt="Porco Rosso"
+      width="90"
+      height="90"
+    )
+
+    .introduction
+      span(class="name") Xnie
+      p(class="description") Web enthusiast
+
 
   main(class="box main")
-    blockquote(class="slogan") Code it work. Code it right. Code it fase.
+
+    section(class="box section")
+      .box-head Experience
+
+    section(class="box section")
+      .box-head Education
+
+    section(class="box section")
+      .box-head Skill
+
+

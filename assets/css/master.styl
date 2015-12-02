@@ -3,30 +3,47 @@
 normalize-css()
 base()
 
-// body
-//   padding: 50px
+
 .nav-top
-  nav($size: 20, $bg-color: $teal, $pos-fixed: true)
-  box-shadow: none
+  nav($size: 20, $bg-color: $white)
+  box-shadow: 0 0 4px $silver
 
-.perso
-  margin: .1em 0
+.introduction
+  float: left
+  margin-left: .7em
+  margin-top: .7em
 
-.slogan
-  blockquote: green
-  color: darken($gray, 20%)
-  font-weight: bold
+.introduction .name
+  font-size: .5em
+  bold()
+
+.introduction .description
+  font-size: .4em
+  margin: 0
 
 .img.round
   rounded()
 
-.img.center
-  display: block
-  margin: 0 auto
+.img.thumbnail
+  float: left
+  vertically-align()
+  margin-left: .1em
 
 .box
-  background-color: $silver
+  background-color: $white
+
+// .box.main
+//   height: 100vh
 
 .box.main
-  height: 100vh
-  padding: 6.5em .5em .5em .5em
+  padding: 1em .5em
+
+.box.section
+  margin-top: 1em
+
+.box-head
+  bold()
+
+// .divider
+//   border: 0
+//   border-top: 1px solid $gray
