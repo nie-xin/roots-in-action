@@ -1,24 +1,9 @@
 extends layout
 
 block content
-
-  nav(class="nav-top")
-
-    img(
-      class="img round thumbnail"
-      src="/img/thumbnail.jpg"
-      alt="Porco Rosso"
-      width="90"
-      height="90"
-    )
-
-    .introduction
-      span(class="name") Xnie
-      p(class="description") Web enthusiast
-
+  include nav.jade
 
   main(class="box main")
-
     section(class="box section")
       .box-head Experience
 
@@ -27,5 +12,3 @@ block content
 
     section(class="box section")
       .box-head Skill
-
-
