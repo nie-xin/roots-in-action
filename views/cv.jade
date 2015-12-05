@@ -1,34 +1,91 @@
-//- section(class="box section")
-//-   .box-head Experience
+extends layout
 
-//- section(class="box section")
-//-   .box-head Education
+block content
+  include nav.jade
 
-section(class="box section")
-  .box-head Skill
-    ul(class="skill-list")
+  main(class="box main" data-toggle="cv")
 
-      li(class="skill")
-        h5 JS
-        progress(
-          class="skill-javascript"
-          max="100"
-          value="70"
-        )
+    section(class="box section")
+      h4(class="box-head") Experience
 
-      li(class="skill")
-        h5 HTML
-        progress(
-          class="skill-html"
-          max="100"
-          value="50"
-        )
+      hr(class="divider")
 
-        li(class="skill")
-          h5 CSS
-          progress(
-            class="skill-css"
-            max="100"
-            value="35"
-          )
+      article
+        h5 Front End developer at Mister Bell
 
+        span Paris,
+          time(datetime="09/2014") 09/2015 -
+          time(datetime="01/2016") 01/2016
+
+        p Porject Moksha for the diffusion of mobile advertisement
+
+      article
+        h5 Part-time Web developer at A.A.A Paris
+
+        span Paris,
+          time(datetime="06/2012") 06/2012 -
+          time(datetime="06/2014") 04/2014
+
+        p Porject AS e-learning & AS management
+
+      article
+        h5 Internship Web developer at Institut Géographique National
+
+        span Paris,
+          time(datetime="04/2014") 03/2014 -
+          time(datetime="07/2016") 07/2014
+
+        p Porject iTowns on Web 3D geo-digitization
+
+
+    section(class="box section")
+      h4(class="box-head") Education
+
+      hr(class="divider")
+
+      article
+        h5 Master of Image processing
+        span Université René Descartes
+        p Paris,
+          time(datetime="09/2012") 09/2012 -
+          time(datetime="09/2014") 09/2014
+
+      article
+        h5 Bachelor of Computer & Networks
+        span Chongqing university
+        p China,
+          time(datetime="10/2006") 10/2006 -
+          time(datetime="10/2011") 07/2011
+
+
+    section(class="box section")
+      h4(class="box-head") Main skills
+
+      hr(class="divider")
+
+      article
+        ul(class="skill-list")
+
+          li(class="skill")
+            h5 JavaScript
+            progress(
+              class="js"
+              max="100"
+              value="80"
+            )
+
+          li(class="skill")
+            h5 HTML
+            progress(
+              class="html"
+              max="100"
+              value="65"
+            )
+
+            li(class="skill")
+              h5 CSS
+              progress(
+                class="css"
+                max="100"
+                value="55"
+              )

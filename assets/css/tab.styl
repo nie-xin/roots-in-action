@@ -1,0 +1,79 @@
+.box
+  background-color: $white
+
+// .box.main
+//   height: 100vh
+
+.box.main
+  padding: 1em .5em
+
+.box.section
+  margin-top: 1.5em
+
+
+article
+  margin: 0 1em 1em 1em
+
+  h5
+    font-size: 1em
+    margin: .5em 0
+
+  time
+    font-size: .9em
+    color: lighten(#555, 20%)
+
+  p
+    margin: .5em 0
+
+
+.box-head
+  font-size: 1.3em
+  margin-bottom: .5em
+
+
+.divider
+  border: 0
+  border-top: 1px dashed $silver
+
+
+.skill-list
+  reset-list()
+  padding-top: .5em
+
+  .skill
+    margin-bottom: 1em
+    position: relative
+
+    h5
+      position: absolute
+      line-height: 1
+      left: .5em
+      bottom: 0em
+      color: $white
+
+progress
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  border: none
+  background-size: auto
+  height: 1.5em
+  width: 100%
+
+.js::-webkit-progress-value
+  background: darken($yellow, 10%)
+
+.js::-moz-progress-bar
+  background: darken($yellow, 10%)
+
+.html::-webkit-progress-value
+  background: $red
+
+.html::-moz-progress-bar
+  background: $red
+
+.css::-webkit-progress-value
+  background: $blue
+
+.css::-moz-progress-bar
+  background: $blue
