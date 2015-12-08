@@ -3,31 +3,53 @@
   box-shadow: 0 0 4px $silver
   width: 100%
 
+  .nav-menu
+    position: absolute
+    display: block
+    float: left
+    width: 20%
 
-ul.nav-menu
-  position: relative
-  bottom: 25%
-  width: 75%
-  // float: left
-  font-size: .8em
-  padding: 0
-  // margin-top: 3em
-  margin-left: 25%
+    ul
+      width: 100%
+      box-sizing: border-box
 
-  .nav-tab
-    color: #555
-    bold()
-    margin-right: 15%
-    font-family: $verdana
+      & :first-child
+        margin-bottom: 1em
 
-    &:link
-      text-decoration: none
+    li
+      float: none
+      font-size: .8em
 
-    &:hover
-      color: lighten(#555, 30%)
+    .nav-item
+      color: $black
 
-  .nav-tab.active
-    color: $teal
+    &.off
+      left: -20%
+
+// ul.nav-menu
+//   position: relative
+//   bottom: 25%
+//   width: 75%
+//   // float: left
+//   font-size: .8em
+//   padding: 0
+//   // margin-top: 3em
+//   margin-left: 25%
+
+//   .nav-tab
+//     color: #555
+//     bold()
+//     margin-right: 15%
+//     font-family: $verdana
+
+//     &:link
+//       text-decoration: none
+
+//     &:hover
+//       color: lighten(#555, 30%)
+
+//   .nav-tab.active
+//     color: $teal
 
 
 // .introduction
@@ -47,7 +69,7 @@ ul.nav-menu
   rounded()
 
 .img.thumbnail
-  float: left
-  vertically-align()
-  margin-left: .3em
+  // vertically-align()
+  // float: left
+  margin: .2em
   border-radius: 10%
