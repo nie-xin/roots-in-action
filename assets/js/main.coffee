@@ -12,7 +12,7 @@ document.addEventListener 'DOMContentLoaded', ->
   currActive = document.querySelector('.nav-item.active')
   currSection = document.querySelector('main')
 
-  if currActive.dataset.toggle != currSection.dataset.toggle
+  if currSection.dataset.toggle && currSection.dataset.toggle != currActive.dataset.toggle
     query = ".nav-item[data-toggle=#{currSection.dataset.toggle}]"
     currSection = document.querySelector(query)
     currActive.classList.remove('active')
