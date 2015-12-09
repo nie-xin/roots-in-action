@@ -14,15 +14,16 @@
     margin-top: -.2em
     box-shadow: 0 0 4px $silver
     left: 0
-    transition: all 300ms ease-in
+    transition: all 200ms ease-in
 
     ul
       width: 100%
       box-sizing: border-box
+      padding: 0
 
       li
+        margin: .5em
         float: none
-        margin: 0
         text-align: center
 
         a
@@ -38,10 +39,7 @@
     .social.list
       display: flex
       align-items: center
-      justify-content: center
-      text-align: center
-      inline-list: 20px
-      float: initial
+      justify-content: space-around
 
 
       a
@@ -59,60 +57,25 @@
             background-color: lighten(#0e76a8, 20%)
 
         &.brandico-github
-          line-height: 2em
           background-color: $black
           &:hover
             background-color: lighten($black, 20%)
 
 
-.nav-item.active
-  blockquote: $olive
-  padding-left: 1em
+.nav-item
+  &.active
+   blockquote: $olive
+   padding-left: 0
 
-// ul.nav-menu
-//   position: relative
-//   bottom: 25%
-//   width: 75%
-//   // float: left
-//   font-size: .8em
-//   padding: 0
-//   // margin-top: 3em
-//   margin-left: 25%
-
-//   .nav-tab
-//     color: #555
-//     bold()
-//     margin-right: 15%
-//     font-family: $verdana
-
-//     &:link
-//       text-decoration: none
-
-//     &:hover
-//       color: lighten(#555, 30%)
-
-//   .nav-tab.active
-//     color: $teal
+.nav-menu .nav-item.social
+  margin-top: 0
+  margin-bottom: 0
 
 
-// .introduction
-//   float: left
-//   margin-left: .7em
-//   margin-top: .7em
+.img
+  &.round
+    rounded()
 
-// .introduction .name
-//   font-size: .5em
-//   bold()
-
-// .introduction .description
-//   font-size: .4em
-//   margin: 0
-
-.img.round
-  rounded()
-
-.img.thumbnail
-  // vertically-align()
-  // float: left
-  margin: .2em
-  border-radius: 10%
+  &.thumbnail
+    margin: .2em
+    border-radius: 10%
