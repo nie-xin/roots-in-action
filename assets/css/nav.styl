@@ -7,24 +7,67 @@
     position: absolute
     display: block
     float: left
-    width: 20%
+    width: 35%
+    background-color: lighten($silver, 50%)
+    border: 1px solid rgba(217,217,217,0.7)
+    border-top: none
+    margin-top: -.2em
+    box-shadow: 0 0 4px $silver
+    left: 0
+    transition: all 300ms ease-in
 
     ul
       width: 100%
       box-sizing: border-box
 
-      & :first-child
-        margin-bottom: 1em
+      li
+        float: none
+        margin: 0
+        text-align: center
 
-    li
-      float: none
-      font-size: .8em
-
-    .nav-item
-      color: $black
+        a
+          text-decoration: none
+          color: #555
+          font-weight: bold
+          font-size:  .7em
 
     &.off
-      left: -20%
+      transition: 1s
+      left: -35%
+
+    .social.list
+      display: flex
+      align-items: center
+      justify-content: center
+      text-align: center
+      inline-list: 20px
+      float: initial
+
+
+      a
+        display: block
+        width: 30px
+        height: 30px
+        color: $white
+        line-height: 2em
+        text-decoration: none
+        font-size: .7em
+
+        &.brandico-linkedin
+          background-color: #0e76a8
+          &:hover
+            background-color: lighten(#0e76a8, 20%)
+
+        &.brandico-github
+          line-height: 2em
+          background-color: $black
+          &:hover
+            background-color: lighten($black, 20%)
+
+
+.nav-item.active
+  blockquote: $olive
+  padding-left: 1em
 
 // ul.nav-menu
 //   position: relative

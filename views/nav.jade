@@ -9,12 +9,26 @@ nav(class="nav-top")
       height="60"
     )
 
-  section(class="nav-menu")
+  section(class="nav-menu off")
     ul
-      li
-        a(href="index" class="nav-item active" data-toggle="blog") Blog
-      li
-        a(href="cv" class="nav-item" data-toggle="cv") CV
+      li(class="nav-item active" data-toggle="blog")
+        a(href="index") Blog
+
+      hr(class="menu divider")
+
+      li(class="nav-item" data-toggle="cv")
+        a(href="cv") CV
+
+      hr(class="menu divider")
+
+      ul(class="social list")
+        li
+          a(href="https://github.com/nie-xin" class="brandico-github img round")
+
+        li
+          a(href="https://fr.linkedin.com/in/niexin" class="brandico-linkedin img round")
+
+
 
   //- .introduction
   //-   span(class="name") Xnie
