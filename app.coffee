@@ -10,8 +10,8 @@ module.exports =
 
   extensions: [
     js_pipeline(files: 'assets/js/*.coffee'),
-    css_pipeline(files: ['assets/css/*.styl', 'assets/css/vendor/*.css'])
-    dynamic_content()
+    css_pipeline(files: ['assets/css/*.styl', 'assets/css/vendor/*.css']),
+    dynamic_content(write: 'content.json'),
   ]
 
   stylus:
@@ -26,3 +26,5 @@ module.exports =
 
   server:
     clean_urls: true
+
+  open_browser: false

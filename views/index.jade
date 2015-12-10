@@ -6,6 +6,6 @@ block content
   main(class="box main" data-toggle="blog")
 
     each post in site.posts.all()
-      article.post
+      .post
         h4: a(href=post._url)= post.title
         date= post.date
