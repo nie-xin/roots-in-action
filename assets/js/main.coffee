@@ -23,17 +23,49 @@ toggleNavMenu = (e) ->
     classList.add('off')
 
 
+loadNextPage = ->
+  if currPage + 1 < totalPage
+    currPage += 1
+    renderPage(currPage)
+
+
+loadLastPage = ->
+  if currPage - 1 > -1
+    currPage -= 1
+    renderPage(currPage)
+
+
+renderPage = (index) ->
+  up = (index + 1) * config.limit
+  low = up - config.limit
+  content = templates['page-list'](page: posts.slice(low, up))
+  postList.innerHTML = content
+
+
+currPage = 0
+totalPage = null
+posts = null
+postList = null
+
 document.addEventListener 'DOMContentLoaded', ->
   currActive = document.querySelector('.nav-item.active')
   currSection = document.querySelector('main')
+  postList = document.querySelector('.post-list')
 
   if currSection.dataset.toggle == 'blog'
+    btnLast = document.querySelector('.last')
+    btnLast.addEventListener 'click', loadLastPage
+
+    btnNext = document.querySelector('.next')
+    btnNext.addEventListener 'click', loadNextPage
+
     loadJSON()
       .then (content) ->
-        console.log content
-      .catch (err) ->
-        console.log err
+        posts = JSON.parse(content).posts.items
+        totalPage = Math.ceil(posts.length / config.limit)
 
+      .catch (err) ->
+        console.warn err
 
   if currSection.dataset.toggle && currSection.dataset.toggle != currActive.dataset.toggle
     query = ".nav-item[data-toggle=#{currSection.dataset.toggle}]"

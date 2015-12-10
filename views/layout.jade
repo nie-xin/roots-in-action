@@ -14,4 +14,6 @@ html
   body
     block content
     //-  inject js from root
+    != client_templates()
+    != config_js()
     != js('/')
