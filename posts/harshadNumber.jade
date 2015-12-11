@@ -1,0 +1,93 @@
+---
+title: 'Harshad number'
+date: 9/12/2015
+_content: false
+---
+
+extends ../views/single_post_layout
+
+block blog
+  :markdown
+    # Harshad number
+
+    [Harshad number](http://zh.wikipedia.org/wiki/%E5%93%88%E6%B2%99%E5%BE%B7%E6%95%B8)（哈沙德数）是数论中的一个概念，指的是那些能够被自己的数字和整除的正整数集合。比如的201数字之和为2 + 0 + 1 = 3，而201/3=67可以整除，因此它是一个Harshad数。
+
+    这次我们的任务是写一个哈沙德数的对象，该对象拥有以下方法：
+
+    - 判断一个数是否是哈沙德数 `isValid(number)`
+    - 给定任意整数，找出下一个最接近该整数的哈沙德数 `getNext(number)`
+    - 找出一定范围内的哈沙德数 `getSerie(count, start)`，其中count代表需要数量，start是一个可选的起始数
+
+    让我们从哈沙德数的定义分析起：只要能够被自己数字和整数的就是哈沙德数，于是这里的关键就是求任意正整数的数字和。先写一个helper来完成这个任务：
+
+    ```
+      var _getDigitSum = function (number) {
+        return number.toString().split('').reduce(function (pre, cur) {
+          return Number(pre) + Number(cur);
+        });
+    ```
+
+    JS处理数字和还是很优雅的，先将数字转为为字符串，然后按位分割为数组。最后用一个reduce来求和，注意求和的时候要将刚才转换为的字符串再转换会数字。
+
+    这个方法有了，后门就容易多了。首先是isValide：
+
+    ```
+      var isValid = function (number) {
+        return number / _getDigitSum(number) === Math.floor(number/_getDigitSum(number));
+      };
+    ```
+
+    判断整除在JS中略有不同。之前强调过几次，JS中所有的数字都是用浮点数表示的。所以数字相除的结果也自然是浮点数了，和C/JAVA中的除法是整除不同。所以这里我使用了Math.floor来将结果取整，并同不取整的结果比较来判断是否是整除。
+
+    在这个基础上，getNext(number)的实现就容易多了。将number依次加一，并使用isValid来判断加一后的结果是否是哈沙德数。第一个通过判断的自然就是最接近number的哈沙德数了：
+
+    ```
+      var getNext = function (number) {
+        do {
+          number += 1;
+        } while (!isValid(number));
+
+        return number;
+      };
+    ```
+
+    最后是getSerie(count, start)，其实也就是在getNext的基础上增加了一个范围而已：
+
+    ```
+      var getSerie = function (count, start) {
+        var startVal = start || 0;
+        var res = [];
+        while (count > 0) {
+          var next = getNext(startVal)
+          res.push(next);
+          startVal = next;
+          --count;
+        }
+        return res;
+      };
+    ```
+
+    由于start是可选参数，用`var startVal = start || 0;`来给它一个默认值。然后就是调用count次getNext，返回所有调用的结果数组罢了。
+
+    到这里本该结束了，但我发现网上有一个更简洁优雅的实现，真是让我自愧不如：
+
+    ```
+        isValid: function(number) {
+          return number / String(number).split('').reduce(function(sum, digit) {
+            return sum + +digit;  // +digit convert char to number
+          }, 0) % 1 == 0;
+        },
+
+        getNext: function(number) {
+          while (!this.isValid(++number));  //++first, so avoid do while in my solution
+          return number;
+        },
+
+        getSerie: function(count, start) {
+          start = start || 0;  // not big deal to overwrite start since it's primitive
+          var serie = [];
+          for (var i = 0; i < count; ++i)
+            serie.push(start = this.getNext(start));  // NEAT: set start to next, and push this value to serie
+          return serie;
+        }
+    ```

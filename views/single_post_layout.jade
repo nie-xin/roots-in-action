@@ -4,6 +4,9 @@ block content
   include nav.jade
 
   main(class="box main")
-    block blog
 
-    a(href='/') back to index
+    .post-content
+      block blog
+
+    footer
+      a(class='last' href='/') <

@@ -4,18 +4,10 @@ block content
   include nav.jade
 
   main(class="box main" data-toggle="blog")
-
-    //- each post in site.posts.all()
-    //-   .post
-    //-     h4: a(href=post._url)= post.title
-    //-     date= post.date
-    //- != JSON.stringify(records.posts)
-
-  - var page = records.posts.slice(0, 3)
+    - var page = records.posts.slice(0, 3)
     ul(class="post-list")
       include templates/page-list
-    //- for post, i in records.posts
-    //-   if i < config.limit
-    //-     include templates/page-item
-    button(class="last") last
-    button(class="next") more
+
+    footer
+      a(class='last') <
+      a(class='next') >
