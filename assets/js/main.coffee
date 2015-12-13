@@ -23,16 +23,21 @@ toggleNavMenu = (e) ->
     classList.add('off')
 
 
-loadNextPage = ->
+loadMorePage = ->
   if currPage + 1 < totalPage
     currPage += 1
-    renderPage(currPage)
+    appendPage(currPage)
 
 
-loadLastPage = ->
-  if currPage - 1 > -1
-    currPage -= 1
-    renderPage(currPage)
+appendPage = (index) ->
+  template = getPageTemplate(index)
+  postList.innerHTML += template
+
+
+getPageTemplate = (index) ->
+  up = (index + 1) * config.limit
+  low = up - config.limit
+  templates['page-list'](page: posts.slice(low, up))
 
 
 renderPage = (index) ->
@@ -53,11 +58,8 @@ document.addEventListener 'DOMContentLoaded', ->
   postList = document.querySelector('.post-list')
 
   if currSection.dataset.toggle == 'blog'
-    btnLast = document.querySelector('.last')
-    btnLast.addEventListener 'click', loadLastPage
-
-    btnNext = document.querySelector('.next')
-    btnNext.addEventListener 'click', loadNextPage
+    btnMore = document.querySelector('.more')
+    btnMore.addEventListener 'click', loadMorePage
 
     loadJSON()
       .then (content) ->
