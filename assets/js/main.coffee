@@ -27,6 +27,9 @@ loadMorePage = ->
   if currPage + 1 < totalPage
     currPage += 1
     appendPage(currPage)
+    #TODO: smooth scroll
+    #https://developer.mozilla.org/en-US/docs/Web/API/Window/scroll
+    window.scrollTo(0, document.body.scrollHeight)
 
 
 appendPage = (index) ->
